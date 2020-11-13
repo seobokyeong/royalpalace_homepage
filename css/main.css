@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.container {
+  width: 1160px;
+  margin: 0 auto;
+}
+
+.btn {
+  color: #fff;
+  font-size: 18px;
+  position: relative;
+}
+
+.btn::before {
+  content: '';
+  top: 100%;
+  transform: translateX(-6%);
+  margin-top: 8px;
+  width: 113px;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+}
+
+/* 헤더 */
+.header {
+  margin-top: 42px;
+}
+
+.heade {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.heade_text {
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  /* margin-right: 40px; */
+  text-align: right;
+}
+
+.heade_text a:first-child::after {
+  content: '/';
+  margin: 0px 5px;
+}
+
+/* 메뉴 */
+.nav {
+  display: flex;
+  padding: 50px 0px;
+  justify-content: space-between;
+}
+
+.nav li a {
+  padding: 25px 0px;
+}
+
+/* 슬라이드 */
+
+.slider {
+}
+
+.slide .item {
+  background: cyan;
+  width: 1140px;
+  height: 600px;
+  background-repeat: no-repeat;
+}
+
+.slide .item_01 {
+  background-image: url('../images/silde_01.png');
+}
+
+.slide .item_02 {
+  background: red;
+}
+
+.slide .item_03 {
+  background: slategray;
+}
+
+.slick-dotted.slick-slider {
+  margin-bottom: 0;
+}
+
+/* slick */
+.slick-dots {
+  bottom: 20px;
+}
+
+/* 버튼 */
+
+.sec_btn {
+  display: flex;
+  justify-content: center;
+}
+
+.sec_btn li:nth-child(1),
+.sec_btn li:nth-child(2),
+.sec_btn li:nth-child(3),
+.sec_btn li:nth-child(4) {
+  background: #f2765c;
+  width: 360px;
+  height: 160px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 26px;
+}
+
+.sec_btn li:nth-child(2) {
+  background: #423f98;
+}
+
+.sec_btn li:nth-child(3) {
+  background: #8cc9a3;
+  line-height: 2;
+  text-align: center;
+}
+
+.sec_btn li:nth-child(4) {
+  background: #e5c700;
+  line-height: 2;
+  text-align: center;
+}
+
+.sec_btn li:nth-child(3) p,
+.sec_btn li:nth-child(4) p {
+  font-size: 20px;
+}
+
+/* section_01 */
+
+.section_01 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1024px;
+  background: orchid;
+}
+
+.seo_title {
+  width: 500px;
+  height: 121px;
+}
+
+.seo_01 p {
+  margin-top: 27px;
+  margin-bottom: 61px;
+  line-height: 1.6;
+  font-size: 15px;
+  color: #fff;
+}
