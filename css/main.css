@@ -76,6 +76,13 @@ body {
   width: 90%;
 }
 
+.nav li a.on {
+  color: #cb9658;
+  padding: 10px 0;
+  border-bottom: 3px solid #cb9658;
+  width: 90%;
+}
+
 /* 슬라이드 */
 
 .slider {
@@ -534,6 +541,7 @@ body {
 .footer_img,
 .icon {
   display: flex;
+  align-items: center;
 }
 
 .footer_img .logo_01 {

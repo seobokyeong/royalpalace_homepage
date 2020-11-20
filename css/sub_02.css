@@ -1,0 +1,197 @@
+.sub_bg02 {
+  height: 100px;
+  background: url(../images/silde_01.png) no-repeat center / cover;
+}
+
+.sub_content02 {
+  font-size: 18px;
+  color: #625f5f;
+  display: flex;
+  margin-top: 24px;
+  margin-bottom: 50px;
+}
+
+/* 내용 왼쪽 */
+
+.sub_content02 .left {
+  float: left;
+  width: 260px;
+  margin-right: 38px;
+}
+
+.sub_content02 .left h2 {
+  font-size: 30px;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.sub_content02 .left h2::after {
+  content: '';
+  width: 56px;
+  height: 3px;
+  background: #cb9658;
+  position: absolute;
+  top: 50%;
+  right: 0;
+}
+
+.sub_content02 .left a {
+  display: block;
+  width: 240px;
+  height: 50px;
+  line-height: 50px;
+  padding-left: 20px;
+  border: 1px solid #cb9658;
+  border-bottom: none;
+}
+.sub_content02 .left a:last-child {
+  border-bottom: 1px solid #cb9658;
+}
+
+.sub_content02 .left a:hover,
+.sub_content02 .left a.on {
+  background: #cb9658;
+  color: #fff;
+}
+
+/* 내용 오른쪽 */
+
+.sub_content02 .right {
+  float: right;
+  width: 860px;
+}
+
+.sub_content02 .right_nav {
+  font-size: 15px;
+  color: #625f5f;
+  height: 42px;
+  line-height: 42px;
+}
+
+.sub_content02 .right h4 {
+  font-size: 20px;
+}
+
+.right_ann {
+  display: flex;
+  height: 74px;
+  align-items: center;
+  color: #000000;
+  background: #f8f8f8;
+  border: 2px solid #d2d2d2;
+}
+
+.right_ann img {
+  width: 36px;
+  height: 30px;
+  padding: 0 21px 0 45px;
+}
+
+.sub_content02 .right span {
+  color: #f2765c;
+}
+
+.sub_content02 .right h4 img {
+  width: 36px;
+  height: 30px;
+  display: flex;
+}
+
+/* 오른쪽 내용 박스 */
+
+.right_content {
+  margin-top: 35px;
+}
+
+/* 박스1  */
+.right_content .right_box01 {
+  float: left;
+  width: 460px;
+}
+
+.right_content .right_box01 {
+  font-size: 17px;
+  color: #000000;
+  line-height: 1.8;
+}
+
+.right_content .right_box01 p:nth-child(2) {
+  font-weight: 500;
+}
+
+.right_content .right_box01 p:nth-child(3) {
+  font-weight: 500;
+}
+
+.right_content .right_box01 p:nth-child(5) {
+  font-weight: 500;
+}
+
+.right_textbox {
+  padding-left: 20px;
+  padding-top: 3px;
+}
+
+.right_content .button {
+  width: 158px;
+  height: 40px;
+  background: #423f98;
+  color: #fff;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+  margin-top: 43px;
+}
+
+/* 박스2 */
+.right_content .right_box02 {
+  float: right;
+  width: 359px;
+  height: 428px;
+  border: 1px solid #e8e8e8;
+}
+
+form {
+  font-size: 15px;
+  color: #000000;
+}
+
+.form_text .textbox {
+  display: flex;
+  margin-left: 21px;
+  padding: 25px 0 10px;
+}
+
+.form_text .textbox h3 {
+  width: 88px;
+  height: 32px;
+  line-height: 32px;
+}
+
+form .name,
+form .pho,
+form .app {
+  width: 123px;
+  height: 28px;
+  border: 1px solid #e0e0e0;
+  outline: none;
+}
+
+form .app {
+  width: 222px;
+}
+
+.check {
+  width: 17px;
+  height: 17px;
+  margin: 0;
+}
+
+.right_boxbtn {
+  width: 128px;
+  height: 38px;
+  text-align: center;
+  line-height: 38px;
+  font-size: 15px;
+  margin: 0 auto;
+}

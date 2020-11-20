@@ -1,0 +1,101 @@
+.sub_bg {
+  height: 100px;
+  background: url(../images/silde_01.png) no-repeat center / cover;
+}
+
+.sub_content {
+  font-size: 18px;
+  color: #625f5f;
+  display: flex;
+  margin-top: 24px;
+  margin-bottom: 50px;
+}
+
+/* 내용 왼쪽 */
+
+.sub_content .left {
+  float: left;
+  width: 260px;
+  margin-right: 38px;
+}
+
+.sub_content .left h2 {
+  font-size: 30px;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.sub_content .left h2::after {
+  content: '';
+  width: 124px;
+  height: 3px;
+  background: #cb9658;
+  position: absolute;
+  top: 50%;
+  right: 0;
+}
+
+.sub_content .left a {
+  display: block;
+  width: 240px;
+  height: 50px;
+  line-height: 50px;
+  padding-left: 20px;
+  border: 1px solid #cb9658;
+  border-bottom: none;
+}
+.sub_content .left a:last-child {
+  border-bottom: 1px solid #cb9658;
+}
+
+.sub_content .left a:hover,
+.sub_content .left a.on {
+  background: #cb9658;
+  color: #fff;
+}
+
+/* 내용 오른쪽 */
+
+.sub_content .right {
+  float: right;
+  width: 860px;
+}
+
+.sub_content .right_nav {
+  font-size: 15px;
+  color: #625f5f;
+  height: 42px;
+  line-height: 42px;
+}
+
+.sub_content .right h4 {
+  font-size: 20px;
+  line-height: 1.4;
+  color: #000000;
+  background: #f8f8f8;
+  border: 2px solid #d2d2d2;
+  padding: 10px 196px 14px 122px;
+}
+
+.sub_content .right_text {
+  font-size: 17px;
+}
+
+.sub_content .right_text p:nth-child(1) {
+  color: #c02525;
+  font-weight: bold;
+  margin-top: 32px;
+  margin-bottom: 19px;
+}
+
+.sub_content .right_text p:nth-child(2) {
+  color: #000000;
+  font-weight: bold;
+  line-height: 1.4;
+  margin-bottom: 11px;
+}
+
+.sub_content .right_text p:nth-child(3) {
+  color: #000000;
+  line-height: 1.8;
+}
