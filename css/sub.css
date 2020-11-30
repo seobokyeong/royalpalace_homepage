@@ -68,6 +68,10 @@
   line-height: 42px;
 }
 
+.sub_content .right_nav span {
+  font-weight: 700;
+}
+
 .sub_content .right h4 {
   font-size: 20px;
   line-height: 1.4;

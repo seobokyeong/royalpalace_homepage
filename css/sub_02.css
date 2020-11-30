@@ -68,6 +68,11 @@
   line-height: 42px;
 }
 
+.sub_content02 .right_nav span {
+  font-weight: 700;
+  color: #625f5f;
+}
+
 .sub_content02 .right h4 {
   font-size: 20px;
 }
@@ -87,7 +92,7 @@
   padding: 0 21px 0 45px;
 }
 
-.sub_content02 .right span {
+.right_ann span {
   color: #f2765c;
 }
 
@@ -147,7 +152,7 @@
 .right_content .right_box02 {
   float: right;
   width: 359px;
-  height: 428px;
+  height: 440px;
   border: 1px solid #e8e8e8;
 }
 
@@ -179,12 +184,34 @@ form .app {
 
 form .app {
   width: 222px;
+  line-height: 28px;
+}
+
+.app #file-upload-button {
+  background: red;
+}
+
+.checkbox {
+  padding-left: 21px;
 }
 
 .check {
   width: 17px;
   height: 17px;
-  margin: 0;
+  margin: 0px;
+}
+
+.form_box {
+  width: 315px;
+  overflow: auto;
+  height: 107px;
+  border: 1px solid #dcdcdc;
+  margin: 0 auto;
+  margin-top: 6px;
+}
+
+.form_box p {
+  line-height: 1.6;
 }
 
 .right_boxbtn {
@@ -194,4 +221,16 @@ form .app {
   line-height: 38px;
   font-size: 15px;
   margin: 0 auto;
+}
+
+.file {
+  width: 210px;
+  height: 28px;
+  line-height: 32px;
+  padding-left: 2px;
+  border: 1px solid #e0e0e0;
+}
+
+input #file-upload-button {
+  background: red;
 }

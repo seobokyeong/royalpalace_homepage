@@ -9,6 +9,7 @@
       rel="stylesheet"
       href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css"
     />
+    <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
     <link
       rel="stylesheet"
       href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
@@ -52,8 +53,8 @@
       </div>
       <div class="right">
         <p class="right_nav">
-          관람 예약 및 신청 <i class="xi-angle-right-min"></i> 청소년 단체관람
-          사전 예약
+          관람 예약 및 신청 <i class="xi-angle-right-min"></i>
+          <span>청소년 단체관람 사전 예약</span>
         </p>
         <div class="right_ann">
           <img src="./images/sub_02_icon.png" alt="" />
@@ -98,21 +99,23 @@
                 </div>
                 <div class="textbox">
                   <h3>신청서등록</h3>
-                  <input type="text" class="app" />
+                  <input class="file" type="file" />
                 </div>
               </div>
-              <label>
+              <label class="checkbox">
                 <input class="check" type="checkbox" /> 개인정보활용동의 (필수)
               </label>
-              <!-- <label for="message">
-                <textarea
-                  name="message"
-                  id="message"
-                  cols="30"
-                  rows="5"
-                  placeholder="내용"
-                ></textarea>
-              </label> -->
+
+              <div class="form_box">
+                <p>
+                  < 개인정보 수집 및 이용에 대한 안내 ><br />
+                  1. 개인정보의 수집 이용 목적 <br />
+                  - 청소년 단체관람 신청 확인용<br />
+                  2. 수집하려는 개인정보의 항목<br />
+                  - 필수 : 성명, 연락처(전화번호 또는 휴대폰번호) <br />
+                  - 서비스 이용과정에서 자동으로 생성되어 수집되는 정...
+                </p>
+              </div>
             </form>
             <div class="button right_boxbtn">
               <a href="#">확인</a>
@@ -165,6 +168,8 @@
         prevArrow: $('.prev_btn'),
         nextArrow: $('.next_btn')
       })
+
+      $('.sub_bg02').parallax({ imageSrc: 'images/silde_01.png' })
     </script>
   </body>
 </html>

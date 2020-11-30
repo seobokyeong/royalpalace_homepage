@@ -23,7 +23,7 @@ body {
   top: 100%;
   transform: translateX(-6%);
   margin-top: 8px;
-  width: 113px;
+  width: 28%;
   height: 2px;
   background: #fff;
   position: absolute;
@@ -171,7 +171,6 @@ body {
 
 .section_01 {
   display: flex;
-  justify-content: center;
   align-items: center;
   height: 1024px;
   background: url(../images/bg_02.jpg) no-repeat;
@@ -181,169 +180,270 @@ body {
 }
 
 .seo_01 {
-  position: absolute;
-  top: 40%;
-  transform: translateX(-77%);
-}
-
-.seo_title {
-  width: 500px;
-  height: 121px;
-}
-
-.seo_01 p {
-  margin-top: 27px;
-  margin-bottom: 61px;
-  margin-left: 100px;
-  line-height: 1.6;
-  font-size: 15px;
-  color: #fff;
-}
-
-/* 역사 */
-
-.line {
-  color: #fff;
-}
-
-.seo_02,
-.seo_03,
-.seo_04 {
   display: flex;
-  position: absolute;
+  color: #fff;
+  padding-top: 50px;
 }
 
-.seo_02 {
-  top: 20%;
-  transform: translateX(%);
+.left {
+  margin-right: 100px;
 }
 
-.seo_03 {
-  top: 45%;
-  transform: translateX(%);
+.left span {
+  font-size: 30px;
 }
 
-.seo_04 {
-  top: 70%;
-  transform: translateX(%);
+.left h2 {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.seo_01 .left p {
+  width: 400px;
+  font-size: 15px;
+  line-height: 1.4;
+  margin: 63px 0 73px;
+}
+
+.seo_01 .left .btn {
+  font-size: 20px;
+  margin-left: 0;
+}
+
+.seo_01 .left .btn::before {
+  width: 30%;
+  transform: translateX(-5%);
+}
+
+.seo_01 .right ul li {
+  display: flex;
+}
+
+.seo_01 .right ul li a {
+  font-size: 17px;
+  background: #cb9658;
+  width: 200px;
+  height: 44px;
+  border-radius: 22px;
+  line-height: 44px;
+  text-align: center;
+  margin-right: 60px;
+}
+
+.seo_01 .right ul li:nth-child(3) a,
+.seo_01 .right ul li:nth-child(4) a,
+.seo_01 .right ul li:nth-child(5) a {
+  height: 50px;
+  border-radius: 50px;
+  line-height: 22px;
+  padding-top: 3px;
+}
+
+.seo_01 .right ul li p {
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.seo_01 .right ul li:last-child p {
+  margin-bottom: 0px;
+}
+
+.up-on-scroll {
+  transition: transform 0.7s, opacity 1s;
 }
 
 /* 행사 */
 
 .section_02 {
-  height: 1118px;
+  height: 958px;
+}
+
+.event_01 {
+  padding: 130px 0;
+}
+
+.seo_title {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+  margin-bottom: 60px;
 }
 
-.event {
-}
-
-.seo_title02 {
-  position: absolute;
-  top: 50%;
-  transform: translateX(-94.5%);
-}
-
-.event img {
-  width: 560px;
-  height: 400px;
-}
-
-.card_text {
-  padding: 40px 0;
-  box-sizing: border-box;
-}
-
-.card_01 {
-  display: flex;
-  padding-top: 105px;
-  padding-bottom: 138px;
-}
-
-.card_01 img {
-  margin-right: 50px;
-}
-
-.card_01 .card_text h3 {
+.seo_title span {
   font-size: 30px;
-  font-weight: 700;
+}
+
+.seo_title h2 {
+  font-size: 40px;
+  font-weight: bold;
   color: #625f5f;
-  position: relative;
-  text-align: right;
-}
-
-.card_01 .card_text h3::before {
-  content: '';
-  width: 270px;
-  height: 3px;
-  background: #0299aa;
-  position: absolute;
-  top: 50%;
-  left: 0%;
-}
-
-.card_01 .card_text h4 {
-  font-size: 15px;
-  color: #707070;
-  text-align: right;
-  margin: 19px 0 26px;
+  margin-right: 95px;
   line-height: 1.4;
 }
 
-.card_01 .card_text p {
-  font-size: 18px;
-  color: #4b4a4a;
-  line-height: 1.6;
-  margin-top: 30px;
+.seo_title p {
+  color: #707070;
+  line-height: 1.4;
 }
 
-.gonow:hover {
-  text-decoration: underline;
-  opacity: 80%;
+.cards {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 40px;
 }
+
+.card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.section_02 .cards .card:nth-child(1) {
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.section_02 .cards .card:nth-child(2) {
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.cards img {
+  width: 357px;
+  height: 598px;
+  transition: all 0.3s;
+}
+
+.cards img:hover {
+  transform: scale(1.2);
+  opacity: 0.5;
+}
+
+.section_02 .dimm {
+  /* position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: all 0.3s; */
+}
+
+.section_02 .cards .card:hover .dimm {
+  opacity: 1;
+}
+
+.section_02 .cards .card:hover p {
+}
+
+.section_02 .cards .card:hover i {
+  position: absolute;
+  top: 100px;
+  left: 45%;
+  transform: rotate(-180deg);
+}
+
+/* 카드1 */
+.card_01 {
+  position: relative;
+}
+
+.card_01 p {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 30px;
+}
+
+.card_01 i {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 33px;
+}
+/* 카드2 */
 
 .card_02 {
-  display: flex;
-}
-
-.card_02 img {
-  margin-left: 50px;
-}
-
-.card_02 .card_text h3 {
-  font-size: 30px;
-  font-weight: 700;
-  color: #625f5f;
   position: relative;
-  text-align: left;
 }
 
-.card_02 .card_text h3::before {
-  content: '';
-  width: 362px;
-  height: 3px;
-  background: #0299aa;
+.card_02 p {
   position: absolute;
-  top: 50%;
-  right: 0%;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 30px;
+  width: 222px;
+  text-align: center;
 }
 
-.card_02 .card_text h4 {
-  font-size: 15px;
-  color: #707070;
-  text-align: left;
-  margin: 19px 0 26px;
-  line-height: 1.4;
+.card_02 i {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 33px;
 }
 
-.card_02 .card_text p {
-  font-size: 18px;
-  color: #4b4a4a;
-  line-height: 1.6;
-  margin-top: 30px;
+/* 카드 3 */
+
+.card_03 {
+  position: relative;
+}
+
+.card_03 p {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 30px;
+  width: 222px;
+  text-align: center;
+}
+
+.card_03 i {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 33px;
+}
+
+.card_03 img {
+  height: 420px;
+}
+
+/* 카드 4 */
+
+.card_04 {
+  position: relative;
+}
+
+.card_04 p {
+  position: absolute;
+  top: 45px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 20px;
+  width: 242px;
+  height: 67px;
+  border: 1px solid #fff;
+  border-radius: 67px;
+  line-height: 67px;
+  text-align: center;
+}
+
+.card_04 img {
+  height: 138px;
 }
 
 /* 슬라이드2 */
