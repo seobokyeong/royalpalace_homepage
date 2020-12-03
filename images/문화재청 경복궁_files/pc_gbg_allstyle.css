@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+@media all and (max-width:400px){
+	.header #skip,.header .utill,.header #gnbMenu,.header .gnb_bg,.Left_Menu{display:block}
+	.header,#Foot{min-width:320px;}
+	.gnb_wrap,#Content_Sub,#Foot .footer{width:1200px;}
+	.Right_cont{float:left;width:900px;}
+	.Sub_Head_tit .path{display:block}
+	#Foot .footer{display:block}
+	#Foot:before{display:block}
+	#Foot .m_footer{display:none}
+	#main-navbar,#main-sidebar{display:none}
+
+	.header,.header.fixed{height:78px;border-bottom:1px solid #e5e5e5}
+	.header{min-width:1200px;height:115px;}
+	.gnb_wrap .logo{position:absolute;top:12px;left:0;z-index:1;background:none}
+	.gnb_wrap .logo img{display:block;}
+}

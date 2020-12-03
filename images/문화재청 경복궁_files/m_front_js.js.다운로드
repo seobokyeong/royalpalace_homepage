@@ -1,0 +1,430 @@
+//gnb
+/*! simple-sidebar v2.2.0 (https://dcdeiv.github.io/simple-sidebar)
+** Davide Di Criscito <davide.dicriscito@gmail.com> (http://github.com/dcdeiv)
+** (c) 2014-2015 Licensed under GPLv2
+*/
+/*! simple-sidebar v2.2.0 (https://dcdeiv.github.io/simple-sidebar)
+** Davide Di Criscito <davide.dicriscito@gmail.com> (http://github.com/dcdeiv)
+** (c) 2014-2015 Licensed under GPLv2
+*/
+(function($) {
+    $.fn.simpleSidebar = function(options) {
+        var opts = $.extend(true, $.fn.simpleSidebar.settings, options);
+
+        return this.each(function() {
+            var pAlign, sAlign, ssbCSS, ssbStyle, maskCSS, maskStyle, sbw,
+                attr = opts.attr,
+                $sidebar = $(this),
+                $btn = $(opts.opener),
+                $wrapper = $(opts.wrapper),
+                $ignore = $(opts.ignore),
+                $add = $(opts.add),
+                $links = opts.sidebar.closingLinks,
+
+                sbMaxW = opts.sidebar.width,
+                gap = opts.sidebar.gap,
+                winMaxW = sbMaxW + gap,
+
+                w = $(window).width(),
+
+                duration = opts.animation.duration,
+
+                animationStart = {},
+                animationReset = {},
+                sidebarStart = {},
+                sidebarReset = {},
+
+                hiddenFlow = function() {
+                    $('body, html').css('overflow', 'hidden');
+                },
+                autoFlow = function() {
+                    $('body, html').css('overflow', 'auto');
+                },
+
+                activate = {
+                    duration: duration,
+                    easing: opts.animation.easing,
+                    complete: hiddenFlow
+                },
+                deactivate = {
+                    duration: duration,
+                    easing: opts.animation.easing,
+                    complete: autoFlow
+                },
+
+                animateOpen = function() {
+                    $elements.animate(animationStart, activate);
+
+                    $sidebar.animate(sidebarStart, activate)
+                        .attr('data-' + attr, 'active');
+
+                    $mask.fadeIn(duration);
+                },
+                animateClose = function() {
+                    $elements.animate(animationReset, deactivate);
+
+                    $sidebar.animate(sidebarReset, deactivate)
+                        .attr('data-' + attr, 'disabled');
+
+                    $mask.fadeOut(duration);
+                },
+                closeSidebar = function() {
+                    var isWhat = $sidebar.attr('data-' + attr),
+                        csbw = $sidebar.width();
+
+                    //Redefining animationReset
+                    animationReset[pAlign] = '-=' + csbw;
+                    animationReset[sAlign] = '+=' + csbw;
+                    sidebarReset[pAlign] = -csbw;
+
+                    if (isWhat === 'active') {
+
+                        $elements.not($sidebar)
+                            .animate(animationReset, deactivate);
+
+                        $sidebar.animate(sidebarReset, deactivate)
+                            .attr('data-' + attr, 'disabled');
+
+                        $mask.fadeOut(duration);
+                    }
+                },
+
+                $sbWrapper = $('<div>').attr('data-' + attr, 'sbwrapper')
+                    .css(opts.sbWrapper.css),
+
+                $mask = $('<div>').attr('data-' + attr, 'mask'),
+
+                //defining elements to move
+                $siblings = $wrapper.siblings().not('script noscript'),
+                $elements = $wrapper.add($siblings)
+                    .not($ignore)
+                    .not($sidebar)
+                    .not($mask)
+                    .not('script')
+                    .not('noscript')
+                    .add($add);
+
+            //Checking sidebar align
+            if (opts.sidebar.align === undefined || opts.sidebar.align === 'right') {
+                pAlign = 'right';
+                sAlign = 'left';
+            } else if (opts.sidebar.align === 'left') {
+                pAlign = 'left';
+                sAlign = 'right';
+            }
+
+            //Mask plugin style
+            maskCSS = {
+                position: 'fixed',
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0,
+                zIndex: opts.sidebar.css.zIndex - 1,
+                display: 'none'
+            };
+            maskStyle = $.extend(true, maskCSS, opts.mask.css);
+
+            //Appending Mask if mask.display is true
+            if (true === opts.mask.display) {
+                $mask.appendTo('body')
+                    .css(maskStyle);
+            }
+
+            //Defining initial Sidebar width
+            if (w < winMaxW) {
+                sbw = w - gap;
+            } else {
+                sbw = sbMaxW;
+            }
+
+            //Sidebar plugin style
+            ssbCSS = {
+                position: 'fixed',
+                top: 0,
+                bottom: 0,
+                width: sbw
+            };
+
+            //Opening sidebar
+            sidebarStart[pAlign] = 0;
+
+            //pushing align to ssbCSS
+            ssbCSS[pAlign] = -sbw;
+
+            //Overriding user style
+            ssbStyle = $.extend(true, ssbCSS, opts.sidebar.css);
+
+            //Sidebar initial status
+            $sidebar.css(ssbStyle)
+                .attr('data-' + attr, 'disabled');
+
+            //Wrapping sidebar inner content if wrapInner.display is TRUE
+            if (true === opts.sbWrapper.display) {
+                $sidebar.wrapInner($sbWrapper);
+            }
+
+            //Animating the sidebar
+            $btn.click(function() {
+                //Checking if sidebar is active or disabled
+                var isWhat = $sidebar.attr('data-' + attr),
+                    csbw = $sidebar.width();
+
+                //Defining animations
+                animationStart[pAlign] = '+=' + csbw;
+                animationStart[sAlign] = '-=' + csbw;
+                animationReset[pAlign] = '-=' + csbw;
+                animationReset[sAlign] = '+=' + csbw;
+                sidebarReset[pAlign] = -csbw;
+
+                if ('disabled' === isWhat) {
+                    animateOpen();
+                } else if ('active' === isWhat) {
+                    animateClose();
+                }
+            });
+
+            //Closing Sidebar
+            $mask.click(closeSidebar);
+
+            //closing sidebar when a link is clicked
+            $sidebar.on('click', $links, closeSidebar);
+
+            //Adjusting width and resetting sidebar on window resize
+            $(window).resize(function() {
+                var rsbw,
+                    isWhat = $sidebar.attr('data-' + attr),
+                    nw = $(window).width(),
+                    reset = {};
+
+                if (nw < winMaxW) {
+                    rsbw = nw - gap;
+                } else {
+                    rsbw = sbMaxW;
+                }
+
+                //Redefining animations ad CSS
+                animationReset[pAlign] = '-=' + rsbw;
+                animationReset[sAlign] = '+=' + rsbw;
+                reset[pAlign] = -rsbw;
+                reset[sAlign] = '';
+                reset.width = rsbw;
+
+                $sidebar.css(reset)
+                    .attr('data-' + attr, 'disabled');
+
+                if (isWhat === 'active') {
+
+                    $elements.not($sidebar)
+                        .animate(animationReset, deactivate);
+
+                    $mask.fadeOut(duration);
+                }
+            });
+        });
+    };
+
+    //options
+    $.fn.simpleSidebar.settings = {
+        attr: 'simplesidebar',
+        animation: {
+            duration: 200,
+            easing: 'swing'
+        },
+        sidebar: {
+            width: 640,
+            gap: 0,
+            closingLinks: 'a',
+            css: {
+                zIndex: 3000
+            }
+        },
+        sbWrapper: {
+            display: true,
+            css: {
+                position: 'relative',
+                height: '100%',
+                overflowY: 'auto',
+                overflowX: 'hidden'
+            }
+        },
+        mask: {
+            display: true,
+            css: {
+                backgroundColor: 'black',
+                opacity: 0.5,
+                filter: 'Alpha(opacity=50)'
+            }
+        },
+    };
+})(jQuery);
+
+
+//mobile slide sub
+function mobileNavi(container){
+	isTouchWebkit = "ontouchstart" in window && "WebKitCSSMatrix" in window;
+	if ( isTouchWebkit )
+	{
+		var child_count = 0;		
+		$(container).find('.has_child').click(function()
+		{
+			if($(this).parent().parent().parent() != null && $(this).attr('class').indexOf('selected') < 0)
+			{
+				$(this).parent().parent().parent().children('li').each(function()
+				{
+					if($(this).children('div').children('.has_child').attr('class') != null)
+					{
+						if($(this).children('div').children('.has_child').attr('class').indexOf('selected') >= 0 )
+						{
+							$(this).children('div').children('.has_child').removeClass('selected');							
+							$(this).children('ul').hide();
+						}
+					}
+				});
+			}
+			
+			if($(this).attr('class').indexOf('selected') < 0 )
+			{
+				$(this).addClass('selected');
+				child_count = $(this).parent().parent().children('ul').children('li').length								
+				$(this).parent().parent().children('ul').animate({'height':'toggle'}, 100 + (child_count * 30), 'swing', function(){});
+			}
+			else
+			{
+				$(this).removeClass('selected');
+				child_count = $(this).parent().parent().children('ul').children('li').length;
+				$(this).parent().parent().children('ul').animate({'height':'toggle'}, (child_count * 50), 'swing', function(){});
+			}
+		});
+		
+	}
+	else
+	{
+		$(container).find('.has_child').click(function()
+		{
+			if($(this).parent().parent().parent() != null && $(this).attr('class').indexOf('selected') < 0)
+			{
+				$(this).parent().parent().parent().children('li').each(function()
+				{
+					if($(this).children('div').children('.has_child').attr('class') != null)
+					{
+						if($(this).children('div').children('.has_child').attr('class').indexOf('selected') >= 0 )
+						{
+							$(this).children('div').children('.has_child').removeClass('selected');
+							
+							$(this).children('ul').hide();
+						}
+					}
+				});
+			}
+			if($(this).attr('class').indexOf('selected') < 0 )
+			{				
+				$(this).addClass('selected');
+				child_count = $(this).parent().parent().children('ul').children('li').length;
+				$(this).parent().parent().children('ul').animate({'height':'toggle'}, 100 + (child_count * 30), 'swing', function(){});
+			}
+			else
+			{
+				$(this).removeClass('selected');
+				child_count = $(this).parent().parent().children('ul').children('li').length;
+				$(this).parent().parent().children('ul').animate({'height':'toggle'});
+			}
+		});		
+	}	
+};
+
+
+$(document).ready(function(){
+	if(navigator.userAgent.match(/Mobile|iP(hone|od)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
+		mobileCss = "/common/css/m_gbg_allstyle.css";
+		$("#cssHref").attr("href", mobileCss);
+
+		$('.main_visual').css('min-width', '320px');
+
+		$('.Bonmun').find('table').attr('width', '100%');
+		$('.Bonmun1').find('table').attr('width', '100%');
+		$('.pop_table2').attr('width', '100%');
+		
+		$('.m_imgWih').css('width', '100%').css('height', 'auto');
+
+		$('.m_guide04 img').css('width', '100%').css('height', 'auto');
+		$('.m_guide04 img').click(function(){
+			location.href="guide04_zoom_m.asp";
+		});
+
+		
+		$('.guide01_tab01_td .a_color02').css('width', '40px');
+
+		$('.guideMapJs').click(function(){
+			location.href="guide01_zoom.asp";
+		});
+
+		$('.m_revUi').css('width', '100%');
+
+		$('.guide_cnt').css('width', '100%');
+
+		$('.m_dateSize').css('width', '55px');
+
+		$('.m_historyUi').css('width', '100%');
+
+		$('.organization th:nth-child(1)').css('width', '40px');
+		$('.organization th:nth-child(2)').css('width', '55px');
+		$('.organization th:nth-child(3)').css('width', '95px');
+
+		$('.board_txt span').css('font-size', '14px');
+
+		$('.photo_big #img_big').css('width', '100%').css('height', 'auto');
+		$('.photo_sum table,.photo_sum table table,.photo_sum table td').css('width', 'auto').css('height', 'auto').css('background', '#fff');
+		$('.photo_sum img').css('width', '51px').css('height', '34px');
+
+		$('.m_imgTxtUi td').css('width', '100%').css('height', 'auto');
+		$('.m_imgTxtUi img').css('max-width', '100%').css('height', 'auto').css('width', 'auto');
+		$('.m_imgTxtUi div').css('text-align', 'left');
+
+		$('.slider img').css('width', '100%').css('height', 'auto');
+		$('.slider').css('height', '232px');
+		$('.slide').css('width', '100%');
+
+		$('.sub_title_line6 li').css('width', '33.3%');
+		$('.sub_title_line6 li:last-child').css('width', '33.4%');
+		$('.sub_title_line6.tab_col4 li,.sub_title_line6.tab_col4 li:last-child').css('width', '25%');
+		$('.sub_title_line6 li').css('box-sizing', 'border-box').css('font-size', '12px').css('padding', '0').css('border', '0').css('line-height', '38px');
+		
+		$('.m_previewType').css('padding', '10px');
+		$('.m_previewType div').css('position', 'static').css('padding', '0');
+
+		$('.m_top img').css('width', 'auto');
+
+		$('.m_guideBook').css('width', 'auto');
+		$('.m_guideBook img').css('height', '220px');
+		
+	}else{
+		pcCss = "/common/css/pc_gbg_allstyle.css";
+		$("#cssHrefPc").attr("href", pcCss);
+	}
+
+	$.ajaxSetup({
+		cache: false
+		});
+
+		$('#main-sidebar-wrapper').load('/include/mobileSideMenu.html');
+
+		$('#main-sidebar').simpleSidebar({
+			opener: '#toggle-sidebar',
+			wrapper: '#contain',
+			animation: {
+				easing: "easeOutQuint"
+			},
+			sidebar: {
+				align: 'right',  
+				closingLinks: '.close-sb',
+			},
+			sbWrapper: {
+				display: false
+			}
+		});
+
+
+});
+
+

@@ -1,6 +1,9 @@
 .sub_bg {
   height: 100px;
-  background: url(../images/silde_01.png) no-repeat center / cover;
+  background-image: url(../images/silde_03.png);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.92;
 }
 
 .sub_content {

@@ -51,32 +51,39 @@ body {
   right: 0%;
   /* margin-right: 40px; */
   text-align: right;
+  padding-bottom: 10px;
 }
 
 .heade_text a:hover {
-  opacity: 50%;
-  text-decoration: underline;
+  color: #625f5f;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #625f5f;
+}
+
+.heade_text a:nth-child(2):hover {
+  color: #000;
+  border-bottom: 1px solid #fff;
 }
 
 /* 메뉴 */
-.nav {
+.menu {
   display: flex;
   padding: 50px 0px;
   justify-content: space-between;
 }
 
-.nav li a {
+.menu li a {
   margin: 25px 0px;
 }
 
-.nav li a:hover {
+.menu li a:hover {
   color: #cb9658;
   padding: 10px 0;
   border-bottom: 3px solid #cb9658;
   width: 90%;
 }
 
-.nav li a.on {
+.menu li a.on {
   color: #cb9658;
   padding: 10px 0;
   border-bottom: 3px solid #cb9658;
@@ -93,26 +100,28 @@ body {
   width: 1140px;
   height: 600px;
   background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .slide .item_01 {
-  background-image: url('../images/silde_01.png');
+  background-image: url(../images/silde_01.png);
 }
 
 .slide .item_02 {
-  background: red;
+  background-image: url(../images/silde_02.png);
 }
 
 .slide .item_03 {
-  background: slategray;
+  background-image: url(../images/silde_03.png);
 }
 
 .slide .item_04 {
-  background: blue;
+  background-image: url(../images/silde_04.png);
 }
 
 .slide .item_05 {
-  background: orange;
+  background-image: url(../images/silde_05.png);
 }
 
 .slick-dotted.slick-slider {
@@ -126,15 +135,15 @@ body {
 
 /* 버튼 */
 
-.sec_btn {
+.nav_btn {
   display: flex;
   justify-content: center;
 }
 
-.sec_btn li:nth-child(1),
-.sec_btn li:nth-child(2),
-.sec_btn li:nth-child(3),
-.sec_btn li:nth-child(4) {
+.nav_btn li:nth-child(1),
+.nav_btn li:nth-child(2),
+.nav_btn li:nth-child(3),
+.nav_btn li:nth-child(4) {
   background: #f2765c;
   width: 360px;
   height: 160px;
@@ -144,27 +153,39 @@ body {
   justify-content: center;
   color: #fff;
   font-size: 26px;
-}
-
-.sec_btn li:nth-child(2) {
-  background: #423f98;
-}
-
-.sec_btn li:nth-child(3) {
-  background: #8cc9a3;
-  line-height: 2;
+  transition: all 0.3s;
   text-align: center;
 }
 
-.sec_btn li:nth-child(4) {
+.nav_btn li:nth-child(1) {
+  line-height: 2;
+}
+
+.nav_btn li:nth-child(2) {
+  background: #423f98;
+}
+
+.nav_btn li:nth-child(3) {
+  background: #8cc9a3;
+}
+
+.nav_btn li:nth-child(4) {
   background: #e5c700;
   line-height: 2;
   text-align: center;
 }
 
-.sec_btn li:nth-child(3) p,
-.sec_btn li:nth-child(4) p {
+.nav_btn li:nth-child(1) p,
+.nav_btn li:nth-child(4) p {
   font-size: 20px;
+}
+
+.nav_btn li:nth-child(1):hover,
+.nav_btn li:nth-child(2):hover,
+.nav_btn li:nth-child(3):hover,
+.nav_btn li:nth-child(4):hover {
+  opacity: 0.85;
+  color: #000;
 }
 
 /* section_01 */
@@ -173,7 +194,7 @@ body {
   display: flex;
   align-items: center;
   height: 1024px;
-  background: url(../images/bg_02.jpg) no-repeat;
+  background: url(../images/bg_01.jpg) no-repeat;
   background-position: center;
   background-size: cover;
   position: relative;
@@ -245,6 +266,14 @@ body {
   margin-bottom: 30px;
 }
 
+.seo_01 .right ul li i {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  font-size: 35px;
+  cursor: pointer;
+}
+
 .seo_01 .right ul li:last-child p {
   margin-bottom: 0px;
 }
@@ -285,6 +314,8 @@ body {
   line-height: 1.4;
 }
 
+/* 카드 */
+
 .cards {
   display: grid;
   grid-template-columns: auto auto auto;
@@ -308,39 +339,73 @@ body {
 }
 
 .cards img {
-  width: 357px;
+  width: 360px;
   height: 598px;
-  transition: all 0.3s;
+  position: relative;
 }
 
 .cards img:hover {
-  transform: scale(1.2);
-  opacity: 0.5;
 }
 
-.section_02 .dimm {
-  /* position: absolute;
+.dimm {
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.3);
   opacity: 0;
-  transition: all 0.3s; */
+  transition: all 0.3s;
 }
 
 .section_02 .cards .card:hover .dimm {
   opacity: 1;
 }
 
-.section_02 .cards .card:hover p {
+.section_02 .cards .card i {
+  top: 50px;
+  left: 0%;
+  display: none;
 }
 
 .section_02 .cards .card:hover i {
+  display: flex;
   position: absolute;
-  top: 100px;
-  left: 45%;
-  transform: rotate(-180deg);
+  top: 23%;
+  left: 44%;
+  color: #fff;
+  font-size: 45px;
+}
+
+.section_02 .cards .card .card_btn {
+  top: 50px;
+  left: 0%;
+  color: #fff;
+  font-size: 20px;
+  border: 1px solid #fff;
+  display: none;
+  border-radius: 40px;
+}
+
+.section_02 .cards .card:hover .card_btn {
+  display: flex;
+  position: absolute;
+  top: 23%;
+  left: 24%;
+}
+
+.card_btn:hover {
+  background: #fff;
+}
+
+.card_btn span {
+  padding: 18px 40px;
+  transition: all 0.3s;
+}
+
+.card_btn span:hover {
+  color: #4b4a4a;
+  padding: 18px 40px;
 }
 
 /* 카드1 */
@@ -355,16 +420,9 @@ body {
   transform: translateX(-50%);
   color: #fff;
   font-size: 30px;
+  margin-bottom: 200px;
 }
 
-.card_01 i {
-  position: absolute;
-  top: 100px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #fff;
-  font-size: 33px;
-}
 /* 카드2 */
 
 .card_02 {
@@ -380,15 +438,6 @@ body {
   font-size: 30px;
   width: 222px;
   text-align: center;
-}
-
-.card_02 i {
-  position: absolute;
-  top: 100px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #fff;
-  font-size: 33px;
 }
 
 /* 카드 3 */
@@ -408,17 +457,15 @@ body {
   text-align: center;
 }
 
-.card_03 i {
-  position: absolute;
-  top: 100px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #fff;
-  font-size: 33px;
-}
-
 .card_03 img {
   height: 420px;
+}
+
+.section_02 .cards .card_03:hover .card_btn {
+  display: flex;
+  position: absolute;
+  top: 30%;
+  left: 24%;
 }
 
 /* 카드 4 */
@@ -427,7 +474,7 @@ body {
   position: relative;
 }
 
-.card_04 p {
+.card_04 a {
   position: absolute;
   top: 45px;
   left: 50%;
@@ -440,6 +487,12 @@ body {
   border-radius: 67px;
   line-height: 67px;
   text-align: center;
+  transition: all 0.3s;
+}
+
+.card_04 a:hover {
+  background: #fff;
+  color: #4b4a4a;
 }
 
 .card_04 img {
@@ -450,7 +503,7 @@ body {
 
 .content_01 {
   height: 522px;
-  background: url(../images/bg_01.png) no-repeat center / cover;
+  background: url(../images/bg_02.jpg) no-repeat center / cover;
   display: flex;
   align-items: center;
   justify-content: center;
