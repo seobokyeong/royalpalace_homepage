@@ -15,15 +15,15 @@ body {
   color: #fff;
   font-size: 18px;
   position: relative;
-  margin-left: 100px;
 }
 
 .btn::before {
   content: '';
   top: 100%;
-  transform: translateX(-6%);
+  left: 1%;
+  transform: translateX(-8%);
   margin-top: 8px;
-  width: 28%;
+  width: 20%;
   height: 2px;
   background: #fff;
   position: absolute;
@@ -131,6 +131,16 @@ body {
 /* slick */
 .slick-dots {
   bottom: 20px;
+}
+
+.slick-dots li button:before {
+  opacity: 0.5;
+  color: #fff;
+}
+
+.slick-dots li.slick-active button:before {
+  opacity: 1;
+  color: #fff;
 }
 
 /* 버튼 */
@@ -264,6 +274,10 @@ body {
   font-size: 15px;
   line-height: 1.8;
   margin-bottom: 30px;
+}
+
+.seo_01 .right ul li p span {
+  margin-left: 140px;
 }
 
 .seo_01 .right ul li i {
@@ -503,7 +517,7 @@ body {
 
 .content_01 {
   height: 522px;
-  background: url(../images/bg_02.jpg) no-repeat center / cover;
+  background: url(../images/bg_03.jpg) no-repeat center / cover;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -525,7 +539,7 @@ body {
 }
 
 .content_01 .btn {
-  text-align: right;
+  margin-top: 50px;
 }
 
 /* 바로가기 */

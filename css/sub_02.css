@@ -167,7 +167,12 @@ form {
 .form_text .textbox {
   display: flex;
   margin-left: 21px;
-  padding: 25px 0 10px;
+  padding: 35px 0 10px;
+}
+
+.form_text .textbox02,
+.form_text .textbox03 {
+  padding-top: 15px;
 }
 
 .form_text .textbox h3 {
