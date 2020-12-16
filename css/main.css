@@ -667,6 +667,8 @@ body {
   display: flex;
   color: #625f5f;
   width: 860px;
+  height: 20px;
+  overflow: hidden;
   position: relative;
 }
 
@@ -682,6 +684,12 @@ body {
   top: 0;
   right: 0;
   margin-left: 74px;
+}
+
+.swiper-container-vertical
+  > .swiper-pagination-bullets
+  .swiper-pagination-bullet {
+  display: none;
 }
 
 /* 푸터 */

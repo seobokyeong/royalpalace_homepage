@@ -11,6 +11,11 @@
     />
     <link
       rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+    <link
+      rel="stylesheet"
       href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
     />
     <link
@@ -298,10 +303,31 @@
         <div class="content_title">
           <h2>공지사항</h2>
         </div>
-        <div class="content_anno">
+        <!-- <div class="content_annoo">
           <h3>경복궁관리소 공무직 근로자 최종합격자 명단 공고</h3>
           <p>2020-10-29</p>
           <a href="#"><i class="xi-plus"></i></a>
+        </div> -->
+        <div class="content_anno">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <h3>경복궁관리소 공무직 근로자 최종합격자 명단 공고</h3>
+              <p>2020-10-29</p>
+              <a href="#"><i class="xi-plus"></i></a>
+            </div>
+            <div class="swiper-slide">
+              <h3>경복궁 및 칠궁 안내해설 회당 참가인원 조정</h3>
+              <p>2020-11-29</p>
+              <a href="#"><i class="xi-plus"></i></a>
+            </div>
+            <div class="swiper-slide">
+              <h3>영추문 매표소 운영 중단 알림</h3>
+              <p>2020-12-08</p>
+              <a href="#"><i class="xi-plus"></i></a>
+            </div>
+          </div>
+          <!-- Add Pagination -->
+          <div class="swiper-pagination"></div>
         </div>
       </div>
     </div>
@@ -342,10 +368,29 @@
       $('.slide').slick({
         dots: true,
         autoplay: true,
+        autoplaySpeed: 5000,
         speed: 500,
-        autoplaySpeed: 3000,
         prevArrow: $('.prev_btn'),
         nextArrow: $('.next_btn')
+      })
+    </script>
+
+    <!-- Swiper JS -->
+    <script src="../package/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper('.content_anno', {
+        direction: 'vertical',
+        autoplay: true,
+        autoplaySpeed: 5000,
+        slidesPerView: 1,
+        spaceBetween: 30,
+        mousewheel: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        }
       })
     </script>
   </body>
