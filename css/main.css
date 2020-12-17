@@ -105,23 +105,23 @@ body {
 }
 
 .slide .item_01 {
-  background-image: url(../images/silde_01.png);
+  background-image: url(../images/silde_01.jpg);
 }
 
 .slide .item_02 {
-  background-image: url(../images/silde_02.png);
+  background-image: url(../images/silde_02.jpg);
 }
 
 .slide .item_03 {
-  background-image: url(../images/silde_03.png);
+  background-image: url(../images/silde_03.jpg);
 }
 
 .slide .item_04 {
-  background-image: url(../images/silde_04.png);
+  background-image: url(../images/silde_04.jpg);
 }
 
 .slide .item_05 {
-  background-image: url(../images/silde_05.png);
+  background-image: url(../images/silde_05.jpg);
 }
 
 .slick-dotted.slick-slider {
@@ -517,7 +517,7 @@ body {
 
 .content_01 {
   height: 522px;
-  background: url(../images/bg_03.jpg) no-repeat center / cover;
+  background: url(../images/bg_02.jpg) no-repeat center / cover;
   display: flex;
   align-items: center;
   justify-content: center;
